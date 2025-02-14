@@ -22,7 +22,7 @@ def main():
       if st.button('Analyze'):
           extracted_text = resume_parsing(uploaded_file)
           st.text_area("", extracted_text, height=300)
-          st.html("""
+          st.components.v1.html("""
           <!DOCTYPE html>
 <html>
 <head>
