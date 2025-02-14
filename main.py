@@ -2,8 +2,11 @@ import streamlit as st
 from markitdown import MarkItDown
 
 def resume_parsing(uploaded_file):
+  with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
+      temp_file.write(uploaded_file.read())
+      file_path = temp_file.name
   md = MarkItDown() 
-  result = md.convert(uploaded_file)
+  result = md.convert(file_path)
   return result.text_content
   
 
