@@ -39,9 +39,6 @@ def main():
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
     }
 
     body {
@@ -50,6 +47,9 @@ def main():
       color: #333;
       line-height: 1.6;
       padding: 20px;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
     }
 
     /* Main title */
