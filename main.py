@@ -321,6 +321,6 @@ def main():
 
 </body>
 </html>
-""",height=300, scrolling=True)
+""", width=1000, height=1000)
 if __name__ == "__main__":
     main()
