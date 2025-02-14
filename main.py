@@ -22,10 +22,5 @@ def main():
       if st.button('Analyze'):
           extracted_text = resume_parsing(uploaded_file)
           st.text_area("", extracted_text, height=300)
-    
-    if text_input:
-        st.subheader("Entered Text:")
-        st.write(text_input)
-
 if __name__ == "__main__":
     main()
