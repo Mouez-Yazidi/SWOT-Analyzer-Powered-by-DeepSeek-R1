@@ -57,8 +57,8 @@ def swot_analyzer(api_key, resume_content, job_description):
     )
     return completion.choices[0].message.content
 
-def html_tamplate():
-    return """
+def html_tamplate(swot_analysis):
+    return f"""
       <!DOCTYPE html>
       <html>
         <head>
@@ -398,5 +398,4 @@ def html_tamplate():
           </script>
         </body>
       </html>
-
     """
