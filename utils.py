@@ -1,3 +1,61 @@
+from groq import Groq
+
+def swot_analyzer(api_key, resume_content, job_description):
+    client = Groq(api_key='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')
+    PROMPT = """
+    Role: You are a professional career advisor specializing in resume optimization and job alignment. Your task is to perform a detailed, evidence-based SWOT analysis comparing a candidate’s resume to a specific job description.
+    
+    Instructions
+    Input Analysis:
+    
+    Resume: Extract technical skills, soft skills, certifications, work experience (including tenure and achievements), education, projects, and industry-specific keywords.
+    
+    Job Description: Identify explicit requirements (e.g., “5+ years in Python”), implicit expectations (e.g., leadership in team-based environments), preferred qualifications, company culture cues, and industry trends.
+    
+    SWOT Analysis Criteria:
+    
+    Strengths: Direct matches between resume items and job requirements (e.g., “Certified AWS DevOps Engineer aligns with cloud infrastructure role”).
+    
+    Weaknesses: Gaps in skills/experience, ambiguous wording (e.g., “Led projects” without metrics), or missing credentials.
+    
+    Opportunities: Undersold transferable skills (e.g., volunteer leadership for management roles), industry trends the candidate could address (e.g., AI familiarity for tech roles), or certifications to bridge minor gaps.
+    
+    Threats: Risks like competing candidates with niche certifications, automation impacting the role, or overqualification mismatches.
+    
+    
+    Output Format
+    Return strictly valid JSON with this structure:
+    ```json
+    {  
+      "strengths": ["Concise bullet tied to job requirements (e.g., 'Advanced Python skills mirror job’s core demand for backend development')"],  
+      "weaknesses": ["Specific gaps (e.g., 'No experience with Kubernetes, listed as required in job description')"],  
+      "opportunities": ["Actionable leverage points (e.g., '3 years of Agile experience could position candidate for Scrum Master opportunities')"],  
+      "threats": ["External risks (e.g., 'Job emphasizes AI/ML, which is not addressed in resume')"],  
+    ```json
+    
+    Rules
+    * Prioritize quality over quantity (3-5 bullets per category max).
+    * Use job-specific terminology (e.g., “Proficiency in React.js” vs. “frontend skills”).
+    * Flag ambiguities in weaknesses (e.g., “Achieved ‘excellent results’ lacks quantifiable metrics”).
+    * Never include markdown, explanations, or placeholder text. 
+     
+    """
+    full_prompt = f"{PROMPT}\n\nResume Content:\n{resume_content}\n\nJob Description:\n{job_description}"
+    completion = client.chat.completions.create(
+        model="deepseek-r1-distill-llama-70b",
+        messages=[{
+                "role": "user",
+                "content": full_prompt
+            }],
+        temperature=0.6,
+        max_completion_tokens=4096,
+        top_p=0.95,
+        stream=False,
+        response_format={
+            "type": "json_object"
+        }
+    )
+    return completion.choices[0].message.content
 
 def html_tamplate():
     return """
