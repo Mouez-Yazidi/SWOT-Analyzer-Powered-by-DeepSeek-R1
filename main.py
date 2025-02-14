@@ -3,7 +3,7 @@ from markitdown import MarkItDown
 
 def resume_parsing(uploaded_file):
   md = MarkItDown() 
-  result = md.convert("/content/1736075776301.pdf")
+  result = md.convert(uploaded_file)
   return result.text_content
   
 
