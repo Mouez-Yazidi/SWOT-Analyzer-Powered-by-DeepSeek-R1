@@ -2,7 +2,6 @@ import streamlit as st
 from markitdown import MarkItDown
 import tempfile
 
-def 
 def resume_parsing(uploaded_file):
   suffix = uploaded_file.name.split(".")[-1].lower()
   with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
