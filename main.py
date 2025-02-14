@@ -19,7 +19,7 @@ def main():
     text_input = st.text_area("📝 Enter the job description here 💼")
     
     if st.button('Analyze'):
-        if uploaded_file is not None:
+        if uploaded_file is None:
             st.warning('Your need to upload your resume', icon="⚠️")
         extracted_text = resume_parsing(uploaded_file)
         st.subheader("Extracted Text:")
