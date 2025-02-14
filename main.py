@@ -15,12 +15,13 @@ def resume_parsing(uploaded_file):
 def main():
     st.title("File Uploader and Text Zone")
     
-    uploaded_file = st.file_uploader("Upload a PDF or DOCX file", type=["pdf", "docx"])
-    text_input = st.text_area("Enter additional text here:")
+    uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
+    text_input = st.text_area("📝 Enter the job description here 💼")
     
-    if uploaded_file is not None:
+    if st.button('Analyze'):
+        if uploaded_file is not None:
+            st.warning('Your need to upload your resume', icon="⚠️")
         extracted_text = resume_parsing(uploaded_file)
-        
         st.subheader("Extracted Text:")
         st.text_area("", extracted_text, height=300)
     
