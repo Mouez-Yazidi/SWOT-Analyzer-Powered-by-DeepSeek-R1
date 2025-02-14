@@ -22,6 +22,7 @@ def main():
       if st.button('Analyze'):
           extracted_text = resume_parsing(uploaded_file)
           st.text_area("",extracted_text, height=300)
-          st.components.v1.html(f"""{html_tamplate}""", width=1000, height=1000)
+          html_content = html_tamplate()
+          st.components.v1.html(f"""{html_content}""", width=1000, height=1000)
 if __name__ == "__main__":
     main()
