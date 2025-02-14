@@ -318,6 +318,6 @@ def main():
 
 </body>
 </html>
-""")
+""",height=300)
 if __name__ == "__main__":
     main()
