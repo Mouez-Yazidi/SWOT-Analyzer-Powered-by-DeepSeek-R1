@@ -261,23 +261,31 @@ def main():
 <script>
   // Example JSON data; replace this with your actual SWOT data
   const swotData = {
-    strengths: [
-      "Strong Python expertise",
-      "Excellent teamwork and communication"
-    ],
-    weaknesses: [
-      "Limited project management experience",
-      "DevOps skills need further development"
-    ],
-    opportunities: [
-      "Fast-growing Cloud sector",
-      "Potential for leadership roles"
-    ],
-    threats: [
-      "Highly competitive market",
-      "Rapid tech changes require constant learning"
-    ]
-  };
+  "strengths": [
+    "Solid technical background with relevant skills in SQL, databases, and programming.",
+    "Versatile experience in web and app development.",
+    "Proficiency in multiple languages, including English and French, meeting the job's language requirements.",
+    "Hands-on experience with data analysis and machine learning.",
+    "Projects demonstrate strong problem-solving skills."
+  ],
+  "weaknesses": [
+    "Lacks the required 5 years of PL/SQL experience.",
+    "No mention of Oracle expertise on the resume.",
+    "Limited direct experience in performance tuning and query optimization.",
+    "Currently a student with limited full-time work experience.",
+    "No indication of willingness to relocate to Portugal."
+  ],
+  "opportunities": [
+    "Data science background could enhance data-driven roles.",
+    "Transferable web development skills to other technical areas.",
+    "Potential to grow into roles requiring SQL and database management.",
+    "Language skills open opportunities in multilingual environments."
+  ],
+  "threats": [
+    "Lack of specific experience makes the role competitive.",
+    "Missing industry-specific knowledge in target sectors.",
+    "Relocation to Portugal could be a barrier."
+  ]};
 
   // Populate each list from the JSON data
   function populateSwot(swot) {
