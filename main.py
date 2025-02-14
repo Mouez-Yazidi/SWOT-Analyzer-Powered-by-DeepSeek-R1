@@ -21,7 +21,6 @@ def main():
     if uploaded_file is not None and text_input:
       if st.button('Analyze'):
           extracted_text = resume_parsing(uploaded_file)
-          st.subheader("Extracted Text:")
           st.text_area("", extracted_text, height=300)
     
     if text_input:
