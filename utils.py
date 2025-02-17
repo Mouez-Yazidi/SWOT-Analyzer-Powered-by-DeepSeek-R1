@@ -43,7 +43,7 @@ def swot_analyzer(resume_content, job_description):
     """
     full_prompt = f"{PROMPT}\n\nResume Content:\n{resume_content}\n\nJob Description:\n{job_description}"
     completion = client.chat.completions.create(
-        model="deepseek-r1-distill-llama-70b",
+        model="deepseek-r1-distill-qwen-32b",
         messages=[{
                 "role": "user",
                 "content": full_prompt
