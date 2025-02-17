@@ -376,4 +376,4 @@ def html_tamplate(swot_analysis):
     """
     html_content = html_content.replace("{{","{")
     html_content = html_content.replace("}}","}")
-    return hmtl_content
+    return html_content
