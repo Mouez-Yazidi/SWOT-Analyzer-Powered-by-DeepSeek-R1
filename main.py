@@ -13,9 +13,9 @@ def resume_parsing(uploaded_file):
   
 
 def main():
-  st.set_page_config(
-      layout="wide"  # This makes the app take the full page width
-  )
+    st.set_page_config(
+        layout="wide"  # This makes the app take the full page width
+    )
     st.title("File Uploader and Text Zone")
     
     uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
