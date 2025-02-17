@@ -26,7 +26,7 @@ def swot_analyzer(api_key, resume_content, job_description):
     Output Format
     Return strictly valid JSON with this structure:
     ```json
-    {  
+    {{  
       "strengths": ["Concise bullet tied to job requirements (e.g., 'Advanced Python skills mirror job’s core demand for backend development')"],  
       "weaknesses": ["Specific gaps (e.g., 'No experience with Kubernetes, listed as required in job description')"],  
       "opportunities": ["Actionable leverage points (e.g., '3 years of Agile experience could position candidate for Scrum Master opportunities')"],  
@@ -40,25 +40,25 @@ def swot_analyzer(api_key, resume_content, job_description):
     * Never include markdown, explanations, or placeholder text. 
      
     """
-    full_prompt = f"{PROMPT}\n\nResume Content:\n{resume_content}\n\nJob Description:\n{job_description}"
+    full_prompt = f"{{PROMPT}}\n\nResume Content:\n{{resume_content}}\n\nJob Description:\n{{job_description}}"
     completion = client.chat.completions.create(
         model="deepseek-r1-distill-llama-70b",
-        messages=[{
+        messages=[{{
                 "role": "user",
                 "content": full_prompt
-            }],
+            }}],
         temperature=0.6,
         max_completion_tokens=4096,
         top_p=0.95,
         stream=False,
-        response_format={
+        response_format={{
             "type": "json_object"
-        }
+        }}
     )
     return completion.choices[0].message.content
 
 def html_tamplate(swot_analysis):
-    return f"""
+    html_content =  f"""
       <!DOCTYPE html>
       <html>
         <head>
@@ -71,140 +71,140 @@ def html_tamplate(swot_analysis):
           />
           <style>
             /* Global reset */
-            * {
+            * {{
               margin: 0;
               padding: 0;
               box-sizing: border-box;
-            }
+            }}
       
-            body {
+            body {{
               font-family: "Poppins", sans-serif;
               background-color: #f0f2f5;
               color: #333;
               line-height: 1.6;
               padding: 20px;
-            }
+            }}
       
             /* Main title */
-            h1 {
+            h1 {{
               text-align: center;
               font-size: 2rem;
               margin-bottom: 30px;
               font-weight: 600;
-            }
+            }}
       
             /* Container for the grid */
-            .swot-grid {
+            .swot-grid {{
               display: grid;
               grid-template-columns: 1fr 1fr;
               gap: 20px;
               max-width: 1000px;
               margin: 0 auto;
-            }
+            }}
       
             /* Each card container */
-            .swot-card {
+            .swot-card {{
               perspective: 1000px;
               border-radius: 8px;
               position: relative;
-            }
+            }}
       
             /* The inner wrapper that will flip */
-            .swot-card-inner {
+            .swot-card-inner {{
               width: 100%;
               transition: transform 0.6s;
               transform-style: preserve-3d;
               border-radius: 8px;
               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
               position: relative;
-            }
+            }}
       
             /* Front and back faces (now filling the entire container) */
             .swot-card-front,
-            .swot-card-back {
+            .swot-card-back {{
               position: relative;
               backface-visibility: hidden;
               border-radius: 8px;
               padding: 20px;
               box-sizing: border-box;
               height: 100%;  /* This makes sure the background covers the entire card */
-            }
+            }}
       
             /* The back face is rotated and hidden by default */
-            .swot-card-back {
+            .swot-card-back {{
               transform: rotateY(180deg);
               display: none;
-            }
+            }}
       
             /* When flipped, rotate the inner wrapper */
-            .swot-card-inner.flip {
+            .swot-card-inner.flip {{
               transform: rotateY(180deg);
-            }
+            }}
       
             /* Toggle visible faces when flipped */
-            .swot-card-inner.flip .swot-card-front {
+            .swot-card-inner.flip .swot-card-front {{
               display: none;
-            }
-            .swot-card-inner.flip .swot-card-back {
+            }}
+            .swot-card-inner.flip .swot-card-back {{
               display: block;
-            }
+            }}
       
             /* Card headings */
             .swot-card-front h2,
-            .swot-card-back h2 {
+            .swot-card-back h2 {{
               font-size: 1.4rem;
               font-weight: 600;
               margin-bottom: 15px;
-            }
+            }}
       
             /* Front side color schemes */
-            .strengths .swot-card-front {
+            .strengths .swot-card-front {{
               background-color: #ffd5d5;
-            }
-            .weaknesses .swot-card-front {
+            }}
+            .weaknesses .swot-card-front {{
               background-color: #cde4ff;
-            }
-            .opportunities .swot-card-front {
+            }}
+            .opportunities .swot-card-front {{
               background-color: #d2ffcc;
-            }
-            .threats .swot-card-front {
+            }}
+            .threats .swot-card-front {{
               background-color: #fff1cc;
-            }
+            }}
       
             /* Back side color schemes */
-            .strengths .swot-card-back {
+            .strengths .swot-card-back {{
               background-color: #ffc5c5;
-            }
-            .weaknesses .swot-card-back {
+            }}
+            .weaknesses .swot-card-back {{
               background-color: #bcd4f9;
-            }
-            .opportunities .swot-card-back {
+            }}
+            .opportunities .swot-card-back {{
               background-color: #c2fcbc;
-            }
-            .threats .swot-card-back {
+            }}
+            .threats .swot-card-back {{
               background-color: #ffe4b3;
-            }
+            }}
       
             /* List styling on the front side */
-            .swot-card-front ul {
+            .swot-card-front ul {{
               list-style: none;
               padding-left: 0;
               margin-top: 10px;
-            }
-            .swot-card-front li {
+            }}
+            .swot-card-front li {{
               background-color: rgba(255, 255, 255, 0.4);
               margin-bottom: 8px;
               padding: 8px 12px;
               border-radius: 4px;
               font-weight: 300;
               transition: background-color 0.3s ease;
-            }
-            .swot-card-front li:hover {
+            }}
+            .swot-card-front li:hover {{
               background-color: rgba(255, 255, 255, 0.6);
-            }
+            }}
       
             /* Back side link styling */
-            .swot-card-back a {
+            .swot-card-back a {{
               display: inline-block;
               margin-top: 10px;
               padding: 8px 16px;
@@ -214,17 +214,17 @@ def html_tamplate(swot_analysis):
               border-radius: 4px;
               font-weight: 400;
               transition: background-color 0.3s ease;
-            }
-            .swot-card-back a:hover {
+            }}
+            .swot-card-back a:hover {{
               background-color: #eee;
-            }
+            }}
       
             /* Responsive design for smaller screens */
-            @media (max-width: 768px) {
-              .swot-grid {
+            @media (max-width: 768px) {{
+              .swot-grid {{
                 grid-template-columns: 1fr;
-              }
-            }
+              }}
+            }}
           </style>
         </head>
         <body>
@@ -305,91 +305,65 @@ def html_tamplate(swot_analysis):
           </div>
       
           <script>
-            // Example SWOT data
-            const swotData = {
-              strengths: [
-                "Solid technical background with relevant skills in SQL, databases, and programming.",
-                "Versatile experience in web and app development.",
-                "Proficiency in multiple languages, including English and French, meeting the job's language requirements.",
-                "Hands-on experience with data analysis and machine learning.",
-                "Projects demonstrate strong problem-solving skills."
-              ],
-              weaknesses: [
-                "Lacks the required 5 years of PL/SQL experience.",
-                "No mention of Oracle expertise on the resume.",
-                "Limited direct experience in performance tuning and query optimization.",
-                "Currently a student with limited full-time work experience.",
-                "No indication of willingness to relocate to Portugal."
-              ],
-              opportunities: [
-                "Data science background could enhance data-driven roles.",
-                "Transferable web development skills to other technical areas.",
-                "Potential to grow into roles requiring SQL and database management.",
-                "Language skills open opportunities in multilingual environments."
-              ],
-              threats: [
-                "Lack of specific experience makes the role competitive.",
-                "Missing industry-specific knowledge in target sectors.",
-                "Relocation to Portugal could be a barrier."
-              ]
-            };
+
+            const swotData = {{swot_analysis}};
       
             // Populate each list from the JSON data
-            function populateSwot(swot) {
+            function populateSwot(swot) {{
               const strengthsList = document.getElementById("strengths-list");
               const weaknessesList = document.getElementById("weaknesses-list");
               const opportunitiesList = document.getElementById("opportunities-list");
               const threatsList = document.getElementById("threats-list");
       
-              const createListItems = (items, parent) => {
-                items.forEach(item => {
+              const createListItems = (items, parent) => {{
+                items.forEach(item => {{
                   const li = document.createElement("li");
                   li.textContent = item;
                   parent.appendChild(li);
-                });
-              };
+                }});
+              }};
       
               createListItems(swot.strengths, strengthsList);
               createListItems(swot.weaknesses, weaknessesList);
               createListItems(swot.opportunities, opportunitiesList);
               createListItems(swot.threats, threatsList);
-            }
+            }}
       
             // Flip and unflip card functions
-            function flipCard(cardId) {
+            function flipCard(cardId) {{
               const card = document.getElementById(cardId);
-              if (!card.classList.contains("flip")) {
+              if (!card.classList.contains("flip")) {{
                 card.classList.add("flip");
-              }
-            }
+              }}
+            }}
       
-            function unflipCard(cardId) {
+            function unflipCard(cardId) {{
               const card = document.getElementById(cardId);
               card.classList.remove("flip");
-            }
+            }}
       
             // Adjust all card heights to match the tallest card
-            function matchCardHeights() {
+            function matchCardHeights() {{
               const cards = document.querySelectorAll(".swot-card-inner");
               let maxHeight = 0;
       
               // Reset heights to natural height
-              cards.forEach(card => {
+              cards.forEach(card => {{
                 card.style.height = "auto";
-              });
+              }});
       
               // Find the maximum height
-              cards.forEach(card => {
-                if (card.offsetHeight > maxHeight) {
+              cards.forEach(card => {{
+                if (card.offsetHeight > maxHeight) {{
                   maxHeight = card.offsetHeight;
-                }
-              });
+                }}
+              }});
       
               // Set each card's height to the maximum
-              cards.forEach(card => {
+              cards.forEach(card => {{
                 card.style.height = maxHeight + "px";
-              });
-            }
+              }});
+            }}
       
             // Initialize the SWOT lists and match card heights on load and resize
             populateSwot(swotData);
@@ -399,3 +373,6 @@ def html_tamplate(swot_analysis):
         </body>
       </html>
     """
+    html_content = html_content.replace("{{","{")
+    html_content = html_content.replace("}}","}")
+    return hmtl_content
