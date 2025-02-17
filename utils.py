@@ -26,12 +26,13 @@ def swot_analyzer(resume_content, job_description):
     Output Format
     Return strictly valid JSON with this structure:
     ```json
-    {{  
+    {  
       "strengths": ["Concise bullet tied to job requirements (e.g., 'Advanced Python skills mirror job’s core demand for backend development')"],  
       "weaknesses": ["Specific gaps (e.g., 'No experience with Kubernetes, listed as required in job description')"],  
       "opportunities": ["Actionable leverage points (e.g., '3 years of Agile experience could position candidate for Scrum Master opportunities')"],  
-      "threats": ["External risks (e.g., 'Job emphasizes AI/ML, which is not addressed in resume')"],  
-    ```json
+      "threats": ["External risks (e.g., 'Job emphasizes AI/ML, which is not addressed in resume')"]
+      }
+    ```
     
     Rules
     * Prioritize quality over quantity (3-5 bullets per category max).
@@ -40,20 +41,20 @@ def swot_analyzer(resume_content, job_description):
     * Never include markdown, explanations, or placeholder text. 
      
     """
-    full_prompt = f"{{PROMPT}}\n\nResume Content:\n{{resume_content}}\n\nJob Description:\n{{job_description}}"
+    full_prompt = f"{PROMPT}\n\nResume Content:\n{resume_content}\n\nJob Description:\n{job_description}"
     completion = client.chat.completions.create(
         model="deepseek-r1-distill-llama-70b",
-        messages=[{{
+        messages=[{
                 "role": "user",
                 "content": full_prompt
-            }}],
+            }],
         temperature=0.6,
         max_completion_tokens=4096,
         top_p=0.95,
         stream=False,
-        response_format={{
+        response_format={
             "type": "json_object"
-        }}
+        }
     )
     return completion.choices[0].message.content
 
