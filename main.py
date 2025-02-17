@@ -16,6 +16,21 @@ def main():
     st.set_page_config(
         layout="wide"  # This makes the app take the full page width
     )
+    # Custom CSS for the gradient background
+    st.markdown(
+        """
+        <style>
+            body {
+                background: linear-gradient(to bottom, #1E3C72, #2A5298); 
+                color: white;
+            }
+            .stApp {
+                background: linear-gradient(to bottom, #1E3C72, #2A5298); 
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     st.title("File Uploader and Text Zone")
     
     uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
