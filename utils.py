@@ -1,6 +1,6 @@
 from groq import Groq
 
-def swot_analyzer(api_key=None, resume_content, job_description):
+def swot_analyzer(resume_content, job_description):
     client = Groq(api_key='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')
     PROMPT = """
     Role: You are a professional career advisor specializing in resume optimization and job alignment. Your task is to perform a detailed, evidence-based SWOT analysis comparing a candidate’s resume to a specific job description.
