@@ -306,7 +306,7 @@ def html_tamplate(swot_analysis):
       
           <script>
 
-            const swotData = {{swot_analysis}};
+            const swotData = {swot_analysis};
       
             // Populate each list from the JSON data
             function populateSwot(swot) {{
