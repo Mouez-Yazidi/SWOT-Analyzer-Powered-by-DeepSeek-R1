@@ -21,7 +21,6 @@ def main():
     if uploaded_file is not None and job_description:
       if st.button('Analyze'):
           parsed_resume = resume_parsing(uploaded_file)
-          st.text_area("",extracted_text, height=300)
           swot_analysis = swot_analyzer(parsed_resume, job_description)
           html_content = html_tamplate(swot_analysis)
           st.components.v1.html(f"""{html_content}""", width=1000, height=1000)
