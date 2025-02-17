@@ -18,7 +18,7 @@ def main():
     uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
     job_description = st.text_area("📝 Enter the job description here 💼")
 
-    if uploaded_file is not None and text_input!="":
+    if uploaded_file is not None and job_description:
       if st.button('Analyze'):
           parsed_resume = resume_parsing(uploaded_file)
           st.text_area("",extracted_text, height=300)
