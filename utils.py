@@ -123,7 +123,7 @@ def html_tamplate(swot_analysis):
       
             body {{
               font-family: "Poppins", sans-serif;
-              background-color: #f0f2f5;
+              background-color: ##fffff;
               color: #333;
               line-height: 1.6;
               padding: 20px;
