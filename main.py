@@ -1,5 +1,4 @@
 import streamlit as st
-from markitdown import MarkItDown
 import argparse
 import os
 from utils import html_tamplate, swot_analyzer, resume_parsing
