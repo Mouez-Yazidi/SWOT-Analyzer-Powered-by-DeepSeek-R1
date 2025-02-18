@@ -226,7 +226,7 @@ def html_tamplate(swot_analysis):
             const threatsList = document.getElementById("threats-list");
     
             const createListItems = (items, parent) => {{
-              items.forEach((item) => {
+              items.forEach((item) => {{
                 const li = document.createElement("li");
                 li.textContent = item;
                 parent.appendChild(li);
@@ -243,7 +243,6 @@ def html_tamplate(swot_analysis):
         </script>
       </body>
     </html>
-
     """
     html_content = html_content.replace("{{","{")
     html_content = html_content.replace("}}","}")
