@@ -1,4 +1,5 @@
 from groq import Groq
+from markitdown import MarkItDown
 import tempfile
 
 def resume_parsing(uploaded_file):
