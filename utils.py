@@ -1,18 +1,49 @@
 from groq import Groq
 from markitdown import MarkItDown
 import tempfile
+from typing import Dict, Any
 
-def resume_parsing(uploaded_file):
-  suffix = uploaded_file.name.split(".")[-1].lower()
-  with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
-      temp_file.write(uploaded_file.read())
-      file_path = temp_file.name
-  md = MarkItDown() 
-  result = md.convert(file_path)
-  return result.text_content
+def resume_parsing(uploaded_file: Any) -> str:
+    """
+    Parses a resume file and extracts text content.
 
-def swot_analyzer(api_key,resume_content, job_description):
+    Args:
+        uploaded_file (Any): The uploaded file object, typically from a web framework like Streamlit.
+
+    Returns:
+        str: The extracted text content from the resume.
+    """
+    suffix = uploaded_file.name.split(".")[-1].lower()
+    
+    with tempfile.NamedTemporaryFile(delete=False, suffix=f".{suffix}") as temp_file:
+        temp_file.write(uploaded_file.read())
+        file_path = temp_file.name
+    
+    md = MarkItDown() 
+    result = md.convert(file_path)
+    
+    return result.text_content
+
+def swot_analyzer(api_key: str, resume_content: str, job_description: str) -> Dict[str, Any]:
+    """
+    Performs a SWOT analysis by comparing a candidate’s resume to a given job description 
+    using an AI model.
+
+    Args:
+        api_key (str): The API key for the Groq client.
+        resume_content (str): The text content of the candidate's resume.
+        job_description (str): The job description to compare against.
+
+    Returns:
+        Dict[str, Any]: A dictionary containing SWOT analysis results with categories:
+                        - strengths
+                        - weaknesses
+                        - opportunities
+                        - threats
+    """
+  
     client = Groq(api_key=api_key)
+    
     PROMPT = """
     Role: You are a professional career advisor specializing in resume optimization and job alignment. Your task is to perform a detailed, evidence-based SWOT analysis comparing a candidate’s resume to a specific job description.
     
@@ -53,6 +84,7 @@ def swot_analyzer(api_key,resume_content, job_description):
      
     """
     full_prompt = f"{PROMPT}\n\nResume Content:\n{resume_content}\n\nJob Description:\n{job_description}"
+    
     completion = client.chat.completions.create(
         model="deepseek-r1-distill-qwen-32b",
         messages=[{
