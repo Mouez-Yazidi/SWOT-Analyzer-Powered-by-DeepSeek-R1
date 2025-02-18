@@ -33,7 +33,7 @@ def main():
       if st.button('Analyze'):
           parsed_resume = resume_parsing(uploaded_file)
           swot_analysis = swot_analyzer(api_key = groq_key,
-                                        parsed_resume = parsed_resume, 
+                                        resume_content = parsed_resume, 
                                         job_description = job_description)
           html_content = html_tamplate(swot_analysis = swot_analysis)
           st.components.v1.html(f"""{html_content}""", width=1000, height=1000)
