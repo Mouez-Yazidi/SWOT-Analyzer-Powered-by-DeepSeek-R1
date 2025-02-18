@@ -26,6 +26,20 @@ def main():
           layout="wide", # This makes the app take the full page width
       )
     st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3997/3997521.png")
+    st.sidebar.markdown("## 🏆 Project Overview")
+    st.sidebar.write(
+        """
+        This application leverages **DeepSeek R1** to analyze **CVs and Job Descriptions**, 
+        generating a **SWOT analysis** (Strengths, Weaknesses, Opportunities, and Threats).
+        
+        **How It Works**:
+        - Upload your **CV** and **Job Description**.
+        - The AI model compares skills, experiences, and requirements.
+        - It generates a **personalized SWOT analysis**, highlighting areas of strength and improvement.
+        
+        🔍 **Use Case**: Helps job seekers and recruiters evaluate **job fit** and **career gaps** effectively.
+        """
+    )
     uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
     job_description = st.text_area("📝 Enter the job description here 💼")
 
