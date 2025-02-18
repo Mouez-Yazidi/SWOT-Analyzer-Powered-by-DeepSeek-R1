@@ -26,18 +26,22 @@ def main():
           layout="wide", # This makes the app take the full page width
       )
     st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3997/3997521.png")
-    st.sidebar.markdown("## 🏆 Project Overview")
+    st.sidebar.markdown("## 🏆 Unlock Your Career Potential with DeepSeek R1!")
     st.sidebar.write(
-        """
-        This application leverages **DeepSeek R1** to analyze **CVs and Job Descriptions**, 
-        generating a **SWOT analysis** (Strengths, Weaknesses, Opportunities, and Threats).
-        
-        **How It Works**:
-        - Upload your **CV** and **Job Description**.
-        - The AI model compares skills, experiences, and requirements.
-        - It generates a **personalized SWOT analysis**, highlighting areas of strength and improvement.
-        
-        🔍 **Use Case**: Helps job seekers and recruiters evaluate **job fit** and **career gaps** effectively.
+        """   
+        Transform your job search and hiring process with our cutting-edge AI that analyzes **CVs** and **Job Descriptions** to deliver a **personalized SWOT Analysis** (Strengths, Weaknesses, Opportunities, and Threats).
+    
+        **Why DeepSeek R1 Stands Out:**
+        - **Deep Insights & Customization:** Tailors the analysis to your unique career profile and job market trends.
+        - **Actionable Recommendations:** Identifies not just what you’re good at, but also strategic areas for growth and improvement.
+        - **Efficiency & Precision:** Streamlines decision-making for both job seekers and recruiters, saving you time and reducing bias.
+    
+        **How It Works:**
+        1. **Upload:** Simply upload your **CV** and **Job Description**.
+        2. **Analyze:** Our advanced AI compares skills, experience, and job requirements.
+        3. **Strategize:** Receive a comprehensive **SWOT Analysis** that pinpoints your key strengths and areas needing attention.
+    
+        🔍 **Ideal For:** Job seekers aiming to align their skills with market demands and recruiters focused on bridging talent gaps with precision.
         """
     )
     uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
