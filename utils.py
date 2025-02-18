@@ -272,8 +272,6 @@ def html_tamplate(swot_analysis):
           </style>
         </head>
         <body>
-          <h1>What's in a SWOT analysis?</h1>
-      
           <div class="swot-grid">
             <!-- STRENGTHS -->
             <div class="swot-card strengths" onclick="unflipCard('strengths-card')">
