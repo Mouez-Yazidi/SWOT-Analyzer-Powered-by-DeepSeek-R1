@@ -1,3 +1,4 @@
 streamlit
 markitdown
 groq
+python-dotenv
