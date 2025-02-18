@@ -1,16 +1,9 @@
 import streamlit as st
 from markitdown import MarkItDown
 import tempfile
-from utils import html_tamplate, swot_analyzer
-def resume_parsing(uploaded_file):
-  suffix = uploaded_file.name.split(".")[-1].lower()
-  with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
-      temp_file.write(uploaded_file.read())
-      file_path = temp_file.name
-  md = MarkItDown() 
-  result = md.convert(file_path)
-  return result.text_content
-  
+import argparse
+import os
+from utils import html_tamplate, swot_analyzer, resume_parsing
 
 def main():
     # Set up argument parser
