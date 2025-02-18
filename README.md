@@ -44,8 +44,8 @@ Getting Started
 # 💻 Local Deployment
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Mouez-Yazidi/WhisperMesh.git
-cd WhisperMesh
+git clone https://github.com/Mouez-Yazidi/SWOT-Analyzer-Powered-by-DeepSeek-R1.git
+cd SWOT-Analyzer-Powered-by-DeepSeek-R1
 ```
 ### 2. Add Environment Variables
 
