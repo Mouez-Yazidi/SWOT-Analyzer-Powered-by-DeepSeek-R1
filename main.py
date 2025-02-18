@@ -13,24 +13,24 @@ def resume_parsing(uploaded_file):
   
 
 def main():
-    # Set up argument parser
-    parser = argparse.ArgumentParser(description='Run the Streamlit app.')
-    parser.add_argument('--environment', 
-                        type=str, 
-                        choices=['local', 'cloud'], 
-                        default='cloud',
-                        help='Specify the environment: "local" or "cloud".')
-    args = parser.parse_args()
-    
-    if args.environment == 'cloud':
-        # Access secret values
-        groq_key = st.secrets["GROQ_KEY"]
-    else:
-        from dotenv import load_dotenv
-        load_dotenv()
-        # Access secret values
-        groq_key = os.getenv("GROQ_KEY")
-    
+  # Set up argument parser
+  parser = argparse.ArgumentParser(description='Run the Streamlit app.')
+  parser.add_argument('--environment', 
+                      type=str, 
+                      choices=['local', 'cloud'], 
+                      default='cloud',
+                      help='Specify the environment: "local" or "cloud".')
+  args = parser.parse_args()
+  
+  if args.environment == 'cloud':
+      # Access secret values
+      groq_key = st.secrets["GROQ_KEY"]
+  else:
+      from dotenv import load_dotenv
+      load_dotenv()
+      # Access secret values
+      groq_key = os.getenv("GROQ_KEY")
+  
   st.set_page_config(
         layout="wide"  # This makes the app take the full page width
     )
