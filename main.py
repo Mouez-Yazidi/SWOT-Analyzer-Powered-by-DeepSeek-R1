@@ -25,7 +25,7 @@ def main():
     st.set_page_config(
           layout="wide", # This makes the app take the full page width
       )
-    st.sidebar.image("https://www.pngkey.com/png/detail/220-2203474_swot-image-icon.png")
+    st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3997/3997551.png")
     st.sidebar.markdown("## 🏆 Project Overview ")
     st.sidebar.write(
         """   
@@ -45,7 +45,7 @@ def main():
         """
     )
 
-    st.sidebar.markdown("## 🚀 Elevate Your Career with **DeepSeek R1** : Unlock Your True Potential Today! 💼✨")
+    st.markdown("## 🚀 Elevate Your Career with **DeepSeek R1** : Unlock Your True Potential Today! 💼✨")
     uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
     job_description = st.text_area("📝 Enter the job description here 💼")
 
