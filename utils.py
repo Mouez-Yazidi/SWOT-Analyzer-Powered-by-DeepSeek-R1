@@ -91,7 +91,7 @@ def swot_analyzer(api_key: str, resume_content: str, job_description: str) -> Di
                 "role": "user",
                 "content": full_prompt
             }],
-        temperature=0.6,
+        temperature=0,
         max_completion_tokens=4096,
         top_p=0.95,
         stream=False,
