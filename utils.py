@@ -1,4 +1,5 @@
 from groq import Groq
+import tempfile
 
 def resume_parsing(uploaded_file):
   suffix = uploaded_file.name.split(".")[-1].lower()
