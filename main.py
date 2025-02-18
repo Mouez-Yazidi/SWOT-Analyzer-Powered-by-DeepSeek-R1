@@ -23,7 +23,8 @@ def main():
         groq_key = os.getenv("GROQ_KEY")
     
     st.set_page_config(
-          layout="wide"  # This makes the app take the full page width
+          layout="wide", # This makes the app take the full page width
+        initial_sidebar_state="expanded"
       )
     st.sidebar.image("https://as1.ftcdn.net/jpg/04/89/49/40/1000_F_489494054_rFqzoJOaBBkHZd6UzgGorRLc7VR4haht.jpg", use_column_width=True)
     uploaded_file = st.file_uploader("🚀 Upload your resume here 📄✨", type=["pdf", "docx"])
