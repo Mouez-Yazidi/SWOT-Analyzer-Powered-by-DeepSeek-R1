@@ -292,7 +292,7 @@ def html_tamplate(swot_analysis):
             </div>
       
             <!-- WEAKNESSES -->
-            <div class="swot-card weaknesses" onclick="flipCard('weaknesses-card')">
+            <div class="swot-card weaknesses" onclick="unflipCard('weaknesses-card')">
               <div class="swot-card-inner" id="weaknesses-card">
                 <div class="swot-card-front">
                   <h2>Weaknesses</h2>
