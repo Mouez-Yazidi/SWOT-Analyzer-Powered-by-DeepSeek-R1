@@ -30,7 +30,9 @@ def main():
     st.sidebar.write(
         """   
         Transform your job search and hiring process with our cutting-edge AI that analyzes **CVs** and **Job Descriptions** to deliver a **personalized SWOT Analysis** (Strengths, Weaknesses, Opportunities, and Threats).
-    
+        
+        🔍 **Ideal For:** *Job seekers* aiming to align their skills with market demands and *recruiters* focused on bridging talent gaps with precision.
+        
         **Why DeepSeek R1 Stands Out:**
         - **Deep Insights & Customization:** Tailors the analysis to your unique career profile and job market trends.
         - **Actionable Recommendations:** Identifies not just what you’re good at, but also strategic areas for growth and improvement.
@@ -38,10 +40,8 @@ def main():
     
         **How It Works:**
         1. **Upload:** Simply upload your **CV** and **Job Description**.
-        2. **Analyze:** Our advanced AI compares skills, experience, and job requirements.
+        2. **Analyze:** The advanced reasoning AI compares skills, experience, and job requirements.
         3. **Strategize:** Receive a comprehensive **SWOT Analysis** that pinpoints your key strengths and areas needing attention.
-    
-        🔍 **Ideal For:** Job seekers aiming to align their skills with market demands and recruiters focused on bridging talent gaps with precision.
         """
     )
 
