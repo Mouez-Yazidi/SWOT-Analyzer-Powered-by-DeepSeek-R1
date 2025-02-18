@@ -1,5 +1,14 @@
 from groq import Groq
 
+def resume_parsing(uploaded_file):
+  suffix = uploaded_file.name.split(".")[-1].lower()
+  with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
+      temp_file.write(uploaded_file.read())
+      file_path = temp_file.name
+  md = MarkItDown() 
+  result = md.convert(file_path)
+  return result.text_content
+
 def swot_analyzer(api_key,resume_content, job_description):
     client = Groq(api_key=api_key)
     PROMPT = """
