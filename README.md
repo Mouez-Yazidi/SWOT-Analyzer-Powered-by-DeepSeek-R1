@@ -29,7 +29,7 @@ How It Works
     
 2.  **Analyze**: Our advanced AI compares your skills and experience with job requirements.
     
-3.  **Result **: A comprehensive **SWOT Analysis** pinpointing key strengths and areas for improvement.
+3.  **Result**: A comprehensive **SWOT Analysis** pinpointing key strengths and areas for improvement.
     
 
 Getting Started
