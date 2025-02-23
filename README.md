@@ -6,6 +6,7 @@ Project Overview
 
 This project leverages the advanced capabilities of **DeepSeek R1**, an AI model renowned for its exceptional reasoning performance, to deliver personalized **SWOT Analyses** (Strengths, Weaknesses, Opportunities, and Threats) by analyzing **CVs** and **Job Descriptions**.
 
+![Example Image](demo.PNG)
 ### Ideal For
 
 *   **Job Seekers**: Align your skills with market demands.
