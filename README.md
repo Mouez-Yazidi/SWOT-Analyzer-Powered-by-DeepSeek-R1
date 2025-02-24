@@ -91,10 +91,8 @@ Streamlit Cloud will:
 
 🎉 You’re all set! Your app will now be live on Streamlit Cloud!
 
-Contributing
-------------
-
-We welcome contributions! Please fork the repository and submit a pull request with your enhancements.
+# ✨ Show Your Support!
+If you appreciate this project, I would be grateful if you could give it a star on GitHub. Your support motivates us to enhance and expand our work!
 
 License
 -------
