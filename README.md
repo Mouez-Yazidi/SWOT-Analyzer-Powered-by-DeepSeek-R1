@@ -21,7 +21,14 @@ This project leverages the advanced capabilities of **DeepSeek R1**, an AI model
 *   **Actionable Insights**: Provides strategic recommendations for growth and improvement.
     
 *   **Efficiency & Precision**: Streamlines decision-making, saving time and reducing bias.
-    
+
+### Technical architecture
+![Example Image](techical architecure.PNG)
+The system is built using **Streamlit** as the user interface, where users can either upload a resume file or manually input their details and job descriptions. Once the input is received, the system processes it in two ways: resume parsing **MarkItDown**(*Python tool from Microsoft for converting files and office documents to Markdown*) for structured extraction and direct text input. 
+
+The parsed  information is then passed to the **deepseek-r1-distill-qwen-32b model**, which acts as the reasoning engine to analyze the content and generate a SWOT analysis. The model identifies key strengths based on skills and experience, weaknesses in missing qualifications, opportunities in aligning competencies with job trends, and threats in skill gaps or competition. 
+
+The results are then processed and displayed back in the Streamlit app, providing users with actionable insights to improve their resume alignment with job requirements. This system seamlessly integrates resume parsing, job description analysis, and AI-driven reasoning to offer a comprehensive SWOT evaluation for career enhancement.
 
 How It Works
 ------------
